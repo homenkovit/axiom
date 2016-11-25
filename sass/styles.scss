@@ -195,7 +195,8 @@ main {
   }
 
   &_contacts-list {
-    width: 654px;
+    max-width: 654px;
+    min-width: 554px;
     .list { 
       padding: 20px 0 0;
       &__item {
