@@ -1,0 +1,272 @@
+@import "normalize";
+@import "_vars";
+
+html, body {
+  width: 100%;
+  min-width: 1000px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: $font-size-main;
+  background-color: $color-background;
+  display: flex;
+  align-items: stretch;
+}
+
+main {
+  flex: 1;
+}
+
+.create-button {
+  position: fixed;
+  right: 28px;
+  bottom: 26px;
+  width: 56px;
+  height: 56px;
+  background-color: $color-accent;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $color-divider;
+  &:last-child {
+    border-bottom: none;
+  }
+  &__item {
+    width: 100%;
+    margin-bottom: 31px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: $color-text;
+    & > div {
+      width: 21px;
+      display: flex;
+      justify-content: center;
+    }
+    & > span {
+      margin-left: 32px;
+    }
+    &_active, &:hover {
+      color: $color-text-active;
+    }
+  }
+
+  &_phones, &_emails, &_place {
+    .list {
+      &__item, &__link {
+        display: flex;
+      }
+      &__item {
+        justify-content: space-between;
+        align-items: center;
+        a:last-child {
+          padding-right: 21px;
+        }
+      }
+      &__link {
+        flex-direction: column;
+        align-items: flex-start;
+        & > span {
+          margin-left: 0;
+          margin-top: 6px;
+          font-size: $font-size-sub;
+          color: $color-text-sub;
+        }
+      }
+    }
+  }
+  &_emails {
+    .list__link {
+      text-transform: none;
+    }
+  }
+  &_place {
+    .list__link:hover {
+      color: $color-text;
+    }
+  }
+}
+
+.nav {
+  width: 257px;
+  background-color: $color-block;
+  display: flex;
+  flex-direction: column;
+  &__list {
+    padding: 19px 24px 22px;
+  }
+  &__user {
+    background-image: url("../images/toolbar@2x.png");
+    width: 257px;
+    height: 160px;
+  }
+  &-wrapper {
+    flex: 1;
+    border: 1px solid #cccccc;
+    border-top: none;
+  }
+}
+
+.header {
+  box-sizing: border-box;
+  padding: 20px 26px;
+  background-color: $color-header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    color: white;
+    font-size: 21px;
+    margin: 0;
+    margin-left: 27px;
+  }
+  &__more {
+    margin-left: 46px;
+    margin-right: 15px;
+  }
+}
+
+.blocks {
+  overflow: hidden;
+}
+
+.block {
+  float: left;
+  box-sizing: border-box;
+  padding: 23px 0 23px 26px;
+  margin: 18px 14px 20px 66px;
+  border-radius: 2px;
+  background-color: $color-block;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  
+  &__category {
+    display: flex;
+    &-icon {
+      font-size: 24px;
+      color: $color-accent;
+      margin-top: 27px;
+      width: 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    &:first-child {
+      .block__category-icon {
+        margin-top: 7px;
+      }
+      .list {
+        padding-top: 0;
+      }
+    }
+    &:last-child .list {
+      border-bottom: none;
+    }
+    .list {
+      padding: 20px 0;
+      border-bottom: 1px solid $color-divider;
+      margin-left: 35px;
+      width: 100%;
+      &__icon {
+        width: 39px;
+        height: 39px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &_contacts-list {
+    width: 654px;
+    .list { 
+      padding: 20px 0 0;
+      &__item {
+        margin-bottom: 24px;
+      }
+      &__link > span {
+        margin-left: 15px;
+      }
+    }
+  }
+  &_contact-card {
+    width: 432px;
+    margin-left: 0;
+    padding: 0;
+    .block__category {
+      padding: 0 22px 0 32px;
+      &:first-of-type {
+        padding-top: 21px;
+        padding-right: 0;
+        .list {
+          border-bottom: 1px solid $color-divider;
+        }
+      }
+      &:last-of-type {
+        padding-bottom: 20px;
+        .list {
+          padding-top: 10px;
+          &__item:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .block__category-icon {
+          margin-top: 17px;
+        }
+      }
+      .list {
+        border-bottom: none;
+        padding-bottom: 0;
+        &__item {
+          margin-bottom: 36px;
+        }
+      }
+    }
+    .block__header {
+      box-sizing: border-box;
+      height: 246px;
+      padding: 25px 27px 18px 25px;
+      background-image: url("../images/block_card__background.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  
+  &__header, &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__header {
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 35px;
+    letter-spacing: -0.4px;
+    color: rgba(255, 255, 255, 0.87);
+  }
+  .buttons {
+    &__back {
+      margin-right: auto;
+    }
+    &__more {
+      margin-left: 33px;
+    }
+  }
+}
